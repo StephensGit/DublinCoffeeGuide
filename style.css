@@ -1,6 +1,12 @@
 body{
     background: #eab0dc;
-    font-family: ubuntu;
+    font-family: "Open Sans",sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: rgb(68,68,68);
+    line-height: 21.4333px;
+    letter-spacing: .06rem;
+    /* font-family: ubuntu; */
 }
 
 h1{
@@ -28,8 +34,8 @@ ul{
 li{
     padding: 20px;
     background: #f6f6f6;
-    font-size: 20px;
-    color: #555;
+
+    /* color: #555; */
     position: relative;
     border-bottom: 1px solid #e6e6e6;
     height: 46px;
@@ -38,16 +44,26 @@ li{
 li:nth-child(even){
     padding: 20px;
     background: #f2f2f2;
+    
 }
 
 li span{
     display: block;
+    /* font-family: "Open Sans",sans-serif; */
+}
+
+li:nth-child(1){
+    border-radius: 10px 120px 10px 10px;
 }
 
 li span:nth-child(2){
     font-size: 16px;
     margin-top: 6px;
-    color: #999;
+    font-weight: 300;
+    font-size: 13px;
+    color: rgb(119,119,119);
+    line-height: 23px;
+    /* color: #999; */
 }
 
 li div{
