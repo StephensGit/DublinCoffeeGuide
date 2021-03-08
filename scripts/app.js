@@ -31,3 +31,5 @@ db.collection('coffeeShops').get().then((snapshot) => {
         renderCafe(doc);
     })
 }) 
+
+console.log("Testing test Branch");
