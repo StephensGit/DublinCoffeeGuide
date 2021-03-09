@@ -26,7 +26,7 @@ function renderCafe(doc) {
 
     //  Deleting data
     cross.addEventListener('click', (e) => {
-        // 
+        // Using the stopPropagation so it doesn't bubble
         e.stopPropagation();
         // Assigning the id variable to the the e.target which is the cross, Then get the parent element of that which is the li, then getting a data-attribute from that 
         let id = e.target.parentElement.getAttribute('data-id');
@@ -46,7 +46,6 @@ db.collection('coffeeShops').get().then((snapshot) => {
     })
 }) 
 
-<<<<<<< HEAD
 //  Saving data
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -59,6 +58,3 @@ form.addEventListener('submit', (e) => {
     form.name.value = '';
     form.location.value = '';
 })
-=======
-console.log("Testing test Branch");
->>>>>>> fcf2f9e17c0d1bdca8d298431af04a0b69f3c640
