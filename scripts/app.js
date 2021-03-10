@@ -37,17 +37,17 @@ function renderCafe(doc) {
 
 // Retreive data from the collection, get a snapshot of it
 // db.collection('coffeeShops').where('name', '==', '3FE').get().then((snapshot) => {
-db.collection('coffeeShops').where('location', '==', 'Dublin 2').orderBy('name') .get().then((snapshot) => {
+// db.collection('coffeeShops').where('location', '==', 'Dublin 2').orderBy('name') .get().then((snapshot) => {
 
-// db.collection('coffeeShops') .get().then((snapshot) => {
-    // Loop through the array of items
-    snapshot.docs.forEach(doc => {
-        // console.log(doc.data());
-        console.log(doc.data().name);
-        // For each item call this function and pass in 
-        renderCafe(doc);
-    })
-}) 
+// // db.collection('coffeeShops') .get().then((snapshot) => {
+//     // Loop through the array of items
+//     snapshot.docs.forEach(doc => {
+//         // console.log(doc.data());
+//         // console.log(doc.data().name);
+//         // For each item call this function and pass in 
+//         renderCafe(doc);
+//     })
+// }) 
 
 //  Saving data
 form.addEventListener('submit', (e) => {
@@ -60,4 +60,19 @@ form.addEventListener('submit', (e) => {
     //  This is clearing the form values after adding coffee shop
     form.name.value = '';
     form.location.value = '';
+})
+
+// Real-time listener
+db.collection('coffeeShops').orderBy('location').onSnapshot(snapshot => {
+    let changes = snapshot.docChanges();
+    changes.forEach(change => {
+        // console.log(change.doc.data());
+        if(change.type == 'added') {
+            renderCafe(change.doc)
+        } else if(change.type == 'removed') {
+            let li = coffeeShopsList.querySelector('[data-id=' + change.doc.id + ']');
+            console.log(li);
+            coffeeShopsList.removeChild(li)
+        }
+    });
 })
