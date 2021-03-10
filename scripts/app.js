@@ -36,7 +36,10 @@ function renderCafe(doc) {
 }
 
 // Retreive data from the collection, get a snapshot of it
-db.collection('coffeeShops').get().then((snapshot) => {
+// db.collection('coffeeShops').where('name', '==', '3FE').get().then((snapshot) => {
+db.collection('coffeeShops').where('location', '==', 'Dublin 2').orderBy('name') .get().then((snapshot) => {
+
+// db.collection('coffeeShops') .get().then((snapshot) => {
     // Loop through the array of items
     snapshot.docs.forEach(doc => {
         // console.log(doc.data());
