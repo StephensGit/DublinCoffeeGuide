@@ -78,6 +78,6 @@ db.collection('coffeeShops').orderBy('location').onSnapshot(snapshot => {
 })
 
 //  Updating data
-db.collection('coffeeShops').doc('F4bHQSVZ83pT2d0VYfNy').update({
-    name: '3fe'
-})
+// db.collection('coffeeShops').doc('F4bHQSVZ83pT2d0VYfNy').update({
+//     name: '3fe'
+// })
